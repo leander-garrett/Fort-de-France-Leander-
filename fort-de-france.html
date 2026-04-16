@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fort-de-France — Le Cœur Battant de la Martinique</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ocean: #1a4a6b;
+    --ocean-deep: #0d2d42;
+    --sand: #f5ead8;
+    --gold: #c9963a;
+    --gold-light: #e8bb6a;
+    --hibiscus: #c0392b;
+    --hibiscus-light: #e74c3c;
+    --cream: #fdf6ec;
+    --dark: #1a1209;
+    --text: #2c1f0e;
+    --text-light: #6b4f2a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Libre Baskerville', serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(13, 45, 66, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,150,58,0.3);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--gold-light);
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(245,234,216,0.8);
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(to bottom, rgba(13,45,66,0.2) 0%, rgba(13,45,66,0.7) 60%, rgba(13,45,66,0.95) 100%),
+      url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Fort-de-France_Martinique.jpg/1280px-Fort-de-France_Martinique.jpg') center/cover no-repeat;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 8% 8%;
+    max-width: 900px;
+  }
+
+  .hero-tag {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeUp 1s 0.2s both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 900;
+    color: var(--sand);
+    line-height: 0.95;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s 0.4s both;
+  }
+
+  .hero h1 em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: rgba(245,234,216,0.8);
+    max-width: 500px;
+    line-height: 1.6;
+    animation: fadeUp 1s 0.6s both;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    right: 8%;
+    color: rgba(245,234,216,0.5);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeIn 2s 1s both;
+  }
+
+  .hero-scroll::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(201,150,58,0.8), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 3rem;
+    color: var(--gold);
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    max-width: 200px;
+  }
+
+  .divider-icon { font-size: 1.2rem; }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 8%;
+  }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.8rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: var(--ocean-deep);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+
+  h2 em { color: var(--hibiscus); font-style: italic; }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text);
+    max-width: 65ch;
+  }
+
+  /* GEOGRAPHY */
+  #geographie {
+    background: var(--ocean-deep);
+    color: var(--sand);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #geographie::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,150,58,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  #geographie h2 { color: var(--sand); }
+  #geographie h2 em { color: var(--gold-light); }
+  #geographie p { color: rgba(245,234,216,0.8); }
+  #geographie .section-label { color: var(--gold-light); }
+  #geographie .section-label::before { background: var(--gold-light); }
+
+  .geo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .geo-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .geo-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,150,58,0.2);
+    border-radius: 4px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .geo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--gold);
+  }
+
+  .geo-card-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+  .geo-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    margin-bottom: 0.4rem;
+  }
+  .geo-card p {
+    font-size: 0.9rem;
+    color: rgba(245,234,216,0.7);
+    line-height: 1.5;
+    max-width: none;
+  }
+
+  .seasons-visual {
+    display: flex;
+    gap: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 2rem;
+    height: 120px;
+  }
+
+  .season {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+
+  .season-careme {
+    background: linear-gradient(to bottom, #f7c948, #e8a020);
+  }
+
+  .season-hivernage {
+    background: linear-gradient(to bottom, #2980b9, #1a5276);
+  }
+
+  .season-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: white;
+    font-size: 1rem;
+  }
+
+  .season-months {
+    font-family: 'Cormorant Garamond', serif;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.85rem;
+  }
+
+  /* HISTORY */
+  #histoire {
+    background: var(--cream);
+    position: relative;
+  }
+
+  .history-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--hibiscus), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.6s ease;
+  }
+
+  .timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.4rem; top: 6px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 3px var(--gold);
+  }
+
+  .timeline-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--hibiscus);
+  }
+
+  .timeline-text {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-top: 0.3rem;
+    line-height: 1.7;
+    max-width: none;
+  }
+
+  .history-quote {
+    background: var(--ocean-deep);
+    color: var(--sand);
+    padding: 3rem;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .history-quote::before {
+    content: '"';
+    position: absolute;
+    top: -1rem; left: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  .history-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: var(--sand);
+    max-width: none;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* CESAIRE */
+  #cesaire {
+    background: linear-gradient(135deg, #1a1209 0%, #2c1f0e 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #cesaire::after {
+    content: 'CÉSAIRE';
+    position: absolute;
+    right: -2rem; top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Playfair Display', serif;
+    font-size: 10rem;
+    font-weight: 900;
+    color: rgba(201,150,58,0.04);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  #cesaire .section-label { color: var(--gold-light); }
+  #cesaire .section-label::before { background: var(--gold-light); }
+  #cesaire h2 { color: var(--sand); }
+  #cesaire h2 em { color: var(--gold-light); }
+
+  .cesaire-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .cesaire-text p {
+    color: rgba(245,234,216,0.8);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    max-width: none;
+  }
+
+  .cesaire-text p + p { margin-top: 1.5rem; }
+
+  .cesaire-dates {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cesaire-years {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    letter-spacing: 0.15em;
+  }
+
+  .cesaire-card {
+    background: rgba(201,150,58,0.08);
+    border: 1px solid rgba(201,150,58,0.25);
+    padding: 2.5rem;
+    border-radius: 4px;
+  }
+
+  .cesaire-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+
+  .cesaire-card blockquote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--sand);
+    line-height: 1.65;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+
+  /* CULTURE */
+  #culture {
+    background: var(--sand);
+  }
+
+  .culture-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .culture-card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(26,18,9,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .culture-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(26,18,9,0.15);
+  }
+
+  .culture-card-header {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .culture-card-header.festivals { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+  .culture-card-header.arts { background: linear-gradient(135deg, #2980b9, #1a5276); }
+  .culture-card-header.litterature { background: linear-gradient(135deg, #27ae60, #1e8449); }
+
+  .culture-card-body { padding: 1.8rem; }
+
+  .culture-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--ocean-deep);
+    margin-bottom: 0.8rem;
+  }
+
+  .culture-card-body p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: none;
+  }
+
+  /* MUSIC */
+  #musique {
+    background: var(--ocean-deep);
+    color: var(--sand);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #musique .section-label { color: var(--gold-light); }
+  #musique .section-label::before { background: var(--gold-light); }
+  #musique h2 { color: var(--sand); }
+  #musique h2 em { color: var(--gold-light); }
+
+  .music-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .music-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,150,58,0.2);
+    padding: 2.5rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .music-card:hover { background: rgba(201,150,58,0.08); }
+
+  .music-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .music-card p {
+    color: rgba(245,234,216,0.7);
+    font-size: 0.95rem;
+    max-width: none;
+    line-height: 1.7;
+  }
+
+  .music-note {
+    position: absolute;
+    right: 2rem; top: 1.5rem;
+    font-size: 2.5rem;
+    opacity: 0.15;
+  }
+
+  .music-intro { color: rgba(245,234,216,0.8); max-width: none; line-height: 1.85; }
+
+  /* VIE QUOTIDIENNE */
+  #vie {
+    background: var(--cream);
+  }
+
+  .vie-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .vie-item {
+    padding: 2.5rem 2rem;
+    border-top: 3px solid var(--gold);
+    background: white;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 12px rgba(26,18,9,0.06);
+  }
+
+  .vie-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+  .vie-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--ocean-deep);
+    margin-bottom: 0.8rem;
+  }
+
+  .vie-item p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: none;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: var(--sand);
+    padding: 4rem 8%;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+
+  footer p {
+    color: rgba(245,234,216,0.4);
+    font-size: 0.85rem;
+    max-width: none;
+    text-align: center;
+  }
+
+  .footer-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.5rem auto;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    section { padding: 4rem 5%; }
+    .geo-grid, .history-layout, .cesaire-layout, .music-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .culture-grid, .vie-grid { grid-template-columns: 1fr; }
+    .geo-cards { grid-template-columns: 1fr 1fr; }
+    .hero-content { padding: 0 5% 6%; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Fort-de-France</div>
+  <ul class="nav-links">
+    <li><a href="#geographie">Géographie</a></li>
+    <li><a href="#histoire">Histoire</a></li>
+    <li><a href="#cesaire">Césaire</a></li>
+    <li><a href="#culture">Culture</a></li>
+    <li><a href="#musique">Musique</a></li>
+    <li><a href="#vie">Vie</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Martinique · Antilles françaises</div>
+    <h1>Fort-de-<em>France</em></h1>
+    <p class="hero-sub">Le cœur battant de la Martinique — une capitale de résilience, de culture et de beauté tropicale.</p>
+  </div>
+  <div class="hero-scroll">Découvrir</div>
+</section>
+
+<!-- GÉOGRAPHIE -->
+<section id="geographie">
+  <div class="section-label">01 — Géographie & Climat</div>
+  <div class="geo-grid">
+    <div>
+      <h2>Entre <em>Collines</em><br>et Mer des Caraïbes</h2>
+      <p>Fort-de-France s'étend sur une plaine étroite nichée entre les collines verdoyantes et la mer. Sa position stratégique à l'ouest de l'Amérique du Sud lui confère un cadre naturel d'une beauté époustouflante.</p>
+      <div class="seasons-visual reveal">
+        <div class="season season-careme">
+          <div class="season-name">☀️ Carême</div>
+          <div class="season-months">Février — Avril</div>
+        </div>
+        <div class="season season-hivernage">
+          <div class="season-name">🌧️ Hivernage</div>
+          <div class="season-months">Mai — Janvier</div>
+        </div>
+      </div>
+    </div>
+    <div class="geo-cards reveal">
+      <div class="geo-card">
+        <div class="geo-card-icon">🌴</div>
+        <div class="geo-card-title">Climat</div>
+        <p>Tropical humide avec des températures douces toute l'année</p>
+      </div>
+      <div class="geo-card">
+        <div class="geo-card-icon">🌊</div>
+        <div class="geo-card-title">Situation</div>
+        <p>À l'ouest de l'Amérique du Sud, dans la mer des Caraïbes</p>
+      </div>
+      <div class="geo-card">
+        <div class="geo-card-icon">⛰️</div>
+        <div class="geo-card-title">Topographie</div>
+        <p>Plaine étroite entre les collines et la mer</p>
+      </div>
+      <div class="geo-card">
+        <div class="geo-card-icon">☀️</div>
+        <div class="geo-card-title">Carême</div>
+        <p>Beaucoup de soleil et de chaleur de février à avril</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span class="divider-icon">✦</span></div>
+
+<!-- HISTOIRE -->
+<section id="histoire">
+  <div class="section-label">02 — Histoire</div>
+  <div class="history-layout">
+    <div>
+      <h2>La <em>Résilience</em><br>d'une Capitale</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1639</div>
+          <p class="timeline-text">Fondation de Fort-Royal — les colons français cherchaient un site stratégique plus facile à défendre contre les Anglais et les Hollandais que Saint-Pierre.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">XVIIe–XIXe s.</div>
+          <p class="timeline-text">Des siècles de rivalité avec Saint-Pierre, alors considérée comme la capitale culturelle et commerciale de la Martinique.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1902</div>
+          <p class="timeline-text">L'éruption catastrophique du Mont Pelée détruit Saint-Pierre et établit définitivement Fort-de-France comme capitale incontestée de la Martinique.</p>
+        </div>
+      </div>
+    </div>
+    <div class="history-quote reveal">
+      <p>L'éruption du Mont Pelée en 1902 fut l'une des catastrophes volcaniques les plus dévastatrices du XXe siècle — et c'est cet événement tragique qui transforma Fort-de-France en capitale permanente de l'île.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span class="divider-icon">✦</span></div>
+
+<!-- CÉSAIRE -->
+<section id="cesaire">
+  <div class="section-label">03 — Figure Emblématique</div>
+  <div class="cesaire-layout">
+    <div class="cesaire-text reveal">
+      <h2>Aimé <em>Césaire</em></h2>
+      <div class="cesaire-dates">
+        <div class="cesaire-years">1913 — 2008</div>
+      </div>
+      <p>Poète, dramaturge et homme politique martiniquais de premier plan, Aimé Césaire est mondialement reconnu comme l'un des pères fondateurs du mouvement de la négritude.</p>
+      <p>À travers son œuvre monumentale — notamment le <em>Cahier d'un retour au pays natal</em> — il a lutté contre le colonialisme et célébré l'identité noire avec une force lyrique inégalée.</p>
+      <p>En tant que maire de Fort-de-France pendant plus de cinquante ans, il a marqué l'histoire de la Martinique par son engagement social et sa quête de dignité humaine. Césaire reste aujourd'hui un symbole universel de la résistance intellectuelle et de l'émancipation des peuples opprimés.</p>
+    </div>
+    <div class="cesaire-card reveal">
+      <div class="cesaire-card-title">Œuvre majeure</div>
+      <blockquote>Cahier d'un retour au pays natal — une œuvre qui a changé la littérature francophone pour toujours.</blockquote>
+      <br><br>
+      <div class="cesaire-card-title" style="margin-top:1rem;">Héritage</div>
+      <div style="display:flex; flex-direction:column; gap:0.8rem; margin-top:0.5rem;">
+        <div style="color:rgba(245,234,216,0.7); font-family:'Cormorant Garamond',serif; font-size:1.05rem;">🎭 Cofondateur de la Négritude</div>
+        <div style="color:rgba(245,234,216,0.7); font-family:'Cormorant Garamond',serif; font-size:1.05rem;">🏛️ Maire de Fort-de-France — 50+ ans</div>
+        <div style="color:rgba(245,234,216,0.7); font-family:'Cormorant Garamond',serif; font-size:1.05rem;">✊ Symbole de l'émancipation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE -->
+<section id="culture">
+  <div class="section-label">04 — Culture & Arts</div>
+  <h2>Une Ville Vivante<br>et <em>Créative</em></h2>
+  <p>Fort-de-France regorge de traditions artistiques et culturelles qui reflètent son identité créole unique, mêlant influences africaines, européennes et caribéennes.</p>
+  <div class="culture-grid">
+    <div class="culture-card reveal">
+      <div class="culture-card-header festivals">🎭</div>
+      <div class="culture-card-body">
+        <div class="culture-card-title">Festivals & Carnaval</div>
+        <p>En juillet, le Festival de Fort-de-France célèbre la danse et le théâtre. Le Carnaval est l'un des événements les plus festifs et colorés de toute la Caraïbe.</p>
+      </div>
+    </div>
+    <div class="culture-card reveal">
+      <div class="culture-card-header arts">🎨</div>
+      <div class="culture-card-body">
+        <div class="culture-card-title">Arts Visuels & Street Art</div>
+        <p>Le street art est omniprésent dans les rues de la ville, transformant chaque quartier en une galerie d'art à ciel ouvert, vibrante et engagée.</p>
+      </div>
+    </div>
+    <div class="culture-card reveal">
+      <div class="culture-card-header litterature">📚</div>
+      <div class="culture-card-body">
+        <div class="culture-card-title">Littérature Créole</div>
+        <p>Fort-de-France a donné naissance à des auteurs de renommée mondiale, dont Édouard Glissant, dont la pensée a profondément influencé la philosophie et la littérature contemporaines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIQUE -->
+<section id="musique">
+  <div class="section-label">05 — Musique</div>
+  <div class="music-layout">
+    <div>
+      <h2>Rythmes <em>Créoles</em></h2>
+      <p class="music-intro">La musique martiniquaise est le reflet vivant de son histoire — un mélange d'influences africaines, françaises et caribéennes qui résonne dans chaque rue de Fort-de-France.</p>
+    </div>
+    <div class="reveal">
+      <div class="music-card">
+        <div class="music-note">🥁</div>
+        <div class="music-card-name">Le Bèlè</div>
+        <p>Musique traditionnelle d'origine africaine, le bèlè mêle chant, danse et percussion. C'est l'expression la plus ancienne et la plus profonde de l'identité créole martiniquaise.</p>
+      </div>
+      <div class="music-card">
+        <div class="music-note">🎵</div>
+        <div class="music-card-name">Le Zouk</div>
+        <p>Né dans les années 1980 et popularisé par le groupe Kassav, le zouk est aujourd'hui un genre mondialement connu — un rythme festif et envoûtant qui a conquis les dancefloors du monde entier.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span class="divider-icon">✦</span></div>
+
+<!-- VIE QUOTIDIENNE -->
+<section id="vie">
+  <div class="section-label">06 — Vie Quotidienne</div>
+  <h2>Le Quotidien<br><em>Fort-de-Francien</em></h2>
+  <p>La vie à Fort-de-France se déroule à un rythme bien particulier — intense, communautaire et profondément enracinée dans les traditions créoles.</p>
+  <div class="vie-grid">
+    <div class="vie-item reveal">
+      <div class="vie-icon">⏰</div>
+      <div class="vie-title">Une journée intense</div>
+      <p>Les habitants travaillent souvent de 5h30 du matin jusqu'à 22h, entre tourisme, pêche et commerce. La ville ne s'endort jamais vraiment.</p>
+    </div>
+    <div class="vie-item reveal">
+      <div class="vie-icon">⛪</div>
+      <div class="vie-title">Famille & Foi</div>
+      <p>La culture est marquée par des liens familiaux profonds et des traditions catholiques influentes. Les églises sont très fréquentées le week-end.</p>
+    </div>
+    <div class="vie-item reveal">
+      <div class="vie-icon">🌙</div>
+      <div class="vie-title">Vie nocturne</div>
+      <p>La vie de nuit à Fort-de-France est vibrante — bars, restaurants, musique live — la capitale martiniquaise sait célébrer et partager.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Fort-de-France</div>
+  <div class="footer-divider"></div>
+  <p>Martinique · Antilles françaises · Le Cœur Battant des Caraïbes</p>
+  <br>
+  <p style="margin-top:0.5rem">Par Leander Garrett · 2026</p>
+</footer>
+
+<script>
+  // Intersection Observer for reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal, .timeline-item').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Stagger timeline items
+  document.querySelectorAll('.timeline-item').forEach((item, i) => {
+    item.style.transitionDelay = `${i * 0.15}s`;
+  });
+
+  // Stagger reveal items within grids
+  document.querySelectorAll('.culture-grid .reveal, .vie-grid .reveal').forEach((item, i) => {
+    item.style.transitionDelay = `${(i % 3) * 0.12}s`;
+  });
+</script>
+</body>
+</html>
